@@ -1,0 +1,29 @@
+#main {
+	height: 200px;
+	width: 400px;
+	background-color: #ccc;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+#lefttop, #rightbottom {
+
+	background-color: #fc0;
+	height: 50px;
+	width: 50px;
+
+}
+#lefttop {
+	border-radius: 0 0 100px 0;
+	float: left;
+}
+
+#rightbottom {
+	border-radius: 100px 0 0 0;
+	float:right;
+
+	margin-top: 150px;
+}
