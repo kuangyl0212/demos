@@ -28,6 +28,8 @@ body {
 	margin: 15px;
 	float: left;
 	font-size: 10px;
+	word-break:keep-all;           /* 不换行 */
+	white-space:nowrap;
 }
 
 .art {
