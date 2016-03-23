@@ -5,6 +5,7 @@ body {
 	background-color: #fff;
 	width: 980px;
 	height: 1386px;
+	position: relative;
 }
 #head {
 	height: 63px;
@@ -100,7 +101,7 @@ body {
 	margin: 0;
 	padding: 0;
 	width: 203px;
-	height: 301px;
+/*	height: 301px; */
 	position: absolute;
 	right: 44px;
 	top: 33px;
@@ -351,4 +352,153 @@ body {
 	float: left;
 	line-height: 1;
 	margin-top: 17px;
+}
+#qianduanjishu2 {
+	margin-top: 31px;
+	margin-left: 5px;
+	font-size: 12px;
+	color: #72b16a;
+	font-family: "Microsoft YaHei";
+	font-style: italic;
+	float: left;
+	letter-spacing: 140%;
+}
+#xiayouxia {
+	width: 459px;
+	height: 318px;
+	margin-top: 30px;
+	background-color: #eeedd6;
+	position: relative;
+}
+#p2 {
+	text-indent: 24px;
+}
+#hongsekuai {
+	width: 260px;
+	height: 160px;
+	background-color: #d45d5c;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+
+}
+#list {
+	padding-top: 10px;
+}
+
+#biaozhi {
+	float: left;
+	margin-left: 15px;
+	margin-top: 30px;
+}
+#list li {
+	width: 400px;
+	/*background: url("img/小三角.jpg") no-repeat left center;*/
+	padding-left: 20px;
+	font-size: 16px;
+	color: #5a5b5b;
+	font-family: "SimSun";
+	padding: 10px 0;
+	list-style-type: none;
+}
+.yema {
+	font-size: 12px;
+	color: #5a5b5b;
+	font-family: "SimHei";
+	font-style: italic;
+	margin-top: 4px;
+	float: right;
+	line-height: 1;
+}
+#ling {
+	margin-top: 5px;
+	font-family: "Microsoft YaHei";
+	font-size: 110PX;
+	color: #FFF;
+	margin-left: 10px;
+	float: left;
+}
+#whitestring {
+	background-color: #fff;
+	margin-left: 5px;
+	width: 2px;
+	height: 86px;
+	float: left;
+	margin-top: 37px;
+}
+#one {
+	font-size: 21px;
+	color: #fff;
+	font-family: "SimHei";
+	font-style: italic;
+	padding: 12px 0;
+	margin-top: 30px;
+	padding-left: 90px;
+
+	
+
+}
+#hello {
+	font-family: "SimHei";
+	font-size: 12px;
+	color: #fff;
+	padding-left: 90px;
+	margin-top: -10px;
+}
+#youxiajiao {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 199px;
+	height: 160px;
+}
+.yinhao {
+	font-size: 72px;
+	font-family: "SimHei";
+	color: #d45d5c;
+	line-height: 1;
+	margin: 0;
+	padding: 0;
+	letter-spacing: -55px;
+}
+#zuoyinhao {
+	float: left;
+	margin-bottom: -45px;
+	margin-left: -40px;
+	margin-right: 65px;
+	margin-top: -5px;
+}
+#helloworld {
+	margin-left: 17px;
+	margin-right: 10px;
+	font-size: 14px;
+	color: #5a5b5b;
+	font-family: "SimHei";
+	padding: 8px 0;
+}
+#youyinhao {
+	float: right;
+	margin-right: 20px;
+	margin-top: -25px;
+}
+#footer {
+	width: 980px;
+	height: 63px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+
+}
+#dixian {
+	margin: 0 auto;
+	width: 892px;
+	height: 1px;
+	background-color: #938e8c;
+}
+#yejiao {
+	font-size: 12px;
+	color: #d45d45;
+	font-family: "SimHei";
+	float: right;
+	margin-right: 44px;
 }
