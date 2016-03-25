@@ -7,11 +7,7 @@
 <body>
 
   <h3>污染城市列表</h3>
-  <ul id="aqi-list">
-<!--   
-    <li>第一名：福州（样例），10</li>
-  	<li>第二名：福州（样例），10</li> -->
-  </ul>
+  <ul id="aqi-list"></ul>
 
 <script type="text/javascript">
 
@@ -24,23 +20,14 @@ var aqiData = [
   ["西安", 100]
 ];
 
-
-
-  /*
-  在注释下方编写代码
-  遍历读取aqiData中各个城市的数据
-  将空气质量指数大于60的城市显示到aqi-list的列表中
-  */
-  var text = [];
-  for (var i = aqiData.length - 1; i >= 0; i--) {
-    if (aqiData[i][1] > 60 ) {
-      text = text + "<li>" + aqiData[i][0] + "</li>"
-    }
+var text = [];
+for (var i = aqiData.length - 1; i >= 0; i--) {
+  if (aqiData[i][1] > 60 ) {
+    text = text + "<li>" + aqiData[i][0] + "</li>"
   }
+};
 
-  document.getElementById("aqi-list").innerHTML = text;
- 
-
+document.getElementById("aqi-list").innerHTML = text;
 
 </script>
 </body>
