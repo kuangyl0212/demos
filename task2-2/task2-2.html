@@ -19,15 +19,22 @@ var aqiData = [
   ["成都", 90],
   ["西安", 100]
 ];
-
-var text = [];
-for (var i = aqiData.length - 1; i >= 0; i--) {
+var ul = document.getElementById('aqi-list');
+var aqiList = [];
+for (var i = 0; i < aqiData.length; i++) {
   if (aqiData[i][1] > 60 ) {
-    text = text + "<li>" + aqiData[i][0] + "</li>"
+    aqiList.push(aqiData[i]);
   }
 };
-
-document.getElementById("aqi-list").innerHTML = text;
+var sortBy = function(a, b) {
+  return b[1] - a[1];
+}
+aqiList.sort(sortBy);
+for (var i= 0; i < aqiList.length; i++) {
+  var li = document.createElement("li");
+  li.textContent = "第" + (i+1) + "名：" + aqiList[i][0] + " " + aqiList[i][1];
+  ul.appendChild(li);
+}
 
 </script>
 </body>
