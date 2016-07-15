@@ -1,0 +1,57 @@
+body, div {
+	border: 1px solid #999;
+	padding: 20px;
+}
+body {
+		margin: 0;
+}
+#main {
+	background-color: #eee;
+	position: relative;
+	overflow: auto;
+	zoom: 1;
+	min-height: 440px;
+}
+#leftdiv {
+	padding: 0;
+	background-color: #fff;
+	width: 200px;
+	position: absolute;
+	
+}
+#leftdiv h2 {
+	margin-top:20px; 
+	font-size: 12px;
+	font-weight: normal;
+	float: left;
+}
+#leftdiv img {
+	margin: 20px;
+	float: left;
+}
+#rightdiv {
+	background-color: #fff;
+	padding: 0;
+	margin-bottom:20px; 
+	width: 120px;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+
+
+}
+#right1, #right2, #right3, #right4 {
+	border:0;
+	margin: 20px;
+	padding: 0;
+}
+
+#middlediv {
+	
+	background-color:#fff; 
+	margin-left: 220px; 
+	margin-right: 140px;
+	float: left;
+	
+
+}
