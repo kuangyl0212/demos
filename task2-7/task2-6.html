@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task2-7</title>
+	<style>
+		#chart{
+			margin-top: 20px;
+			height: 180px;
+			white-space: nowrap;
+			vertical-align: bottom;
+			line-height: 180px;
+		}
+		#chart div{
+			display: inline-block;
+			margin-right: 2px;
+			width: 10px;
+			background-color: #aaa;
+		}
+	</style>
+	<script src="../jquery.js"></script>
+</head>
+<body>
+
+	<form action="">
+		<!-- <input type="text">
+		<input type="button" value="左侧入" id="left-in">
+		<input type="button" value="右侧入" id="right-in">
+		<input type="button" value="左侧出" id="left-out">
+		<input type="button" value="右侧出" id="right-out"> -->
+		<input type="button" value="排序" id="sort-btn">
+	</form>
+	<div id="chart"></div>
+		
+<script>
+	// alert($)
+	
+	var arr = [];
+	for(var i=0;i<80;i++){
+		arr.push(parseInt(Math.random()*500))
+	}
+	console.log(arr)
+	var data;
+	var chartDiv = $("#chart");
+	chartDiv.on("click","div",function(e){
+		arr.splice($(this).index(),1);
+		renderChart(arr);
+	})
+	function renderChart(arr){
+		// console.log(arr)
+		setTimeout(function(){
+			chartDiv.empty();
+			for (var i = 0; i < arr.length; i++) {
+				var div = $("<div title="+arr[i]+"></div>");
+				div.css("height",arr[i] + "px")
+				chartDiv.append(div);
+			}
+		},10)
+		
+	}
+	$("input[type=text]").change(function(){
+		data = undefined;
+		var val = $(this).val();
+		var valI = parseInt(val, 10);
+		// console.log(valI)
+		if((/^\d*$/g).test(val) && (valI >=10 && valI <= 100 )){
+			data = valI;
+		}
+	});
+	$("#left-in").click(function(){
+		if (data) {
+			if(arr.length<60){
+				arr.unshift(data);
+				renderChart(arr)
+			} else{alert("队列元素限制在60以内")}
+		} else{
+			alert('没有输入或输入不符合规则(输入10-100之内的数字)');
+		}
+	})
+	$("#right-in").click(function(){
+		if (data) {
+			if(arr.length<60){
+			arr.push(data);
+			renderChart(arr)
+			} else {alert("队列元素限制在60以内")}
+		} else{
+			alert('没有输入或输入不符合规则(输入10-100之内的数字)');
+		}
+	})
+	$("#left-out").click(function(){
+		if(arr.length > 0){
+			var n = arr[0];
+			arr.shift();
+			renderChart(arr);
+			// alert(n);
+		} else{
+			alert("队列中还没有元素")
+		}
+	})
+	$("#right-out").click(function(){
+		if(arr.length > 0){
+			var n = arr[arr.length-1];
+			arr.pop();
+			renderChart(arr)
+			alert(n);
+	} else{
+			// console.log(arr.lenght)
+			alert("队列中还没有元素")
+		}
+	})
+	$("#sort-btn").click(function(){
+		if (arr.length > 0) {
+			// alert('sort');
+			var length = arr.length,temp;
+			for(var i =0;i<length-1;i++){
+				for(var j=0;j<length-i-1;j++){
+					if(arr[j]>arr[j+1]){
+						temp=arr[j];
+						arr[j]=arr[j+1];
+						arr[j+1]=temp;
+						var arr2 = arr.slice(0);
+						// var a = function(ar){
+						// 	return renderChart(ar);
+						// }
+						// setTimeout(a(arr2),1000);
+						renderChart(arr2);
+						// function update(a) {
+      //       	renderChart(a);
+	     //        setTimeout(update, 0);
+		    //     }
+      //   	update(arr2);
+					}
+				}
+			}
+		}else{
+			alert("队列中还没有元素")
+		}
+	})
+	renderChart(arr)
+</script>
+</body>
+</html>
