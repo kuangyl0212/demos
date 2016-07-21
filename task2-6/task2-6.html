@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task2-6</title>
+	<style>
+		#chart{
+			margin-top: 20px;
+			white-space: nowrap;
+		}
+		#chart div{
+			display: inline-block;
+			height: 40px;
+			margin-right: 5px;
+			padding: 0 13px;
+			vertical-align: middle;
+			text-align: center;
+			font: 14px/40px "Microsoft Yahei";
+			color: #fff;
+			background-color: #aaa;
+		}
+	</style>
+	<script src="../jquery.js"></script>
+</head>
+<body>
+
+	<form action="">
+		<input type="text">
+		<input type="button" value="左侧入" id="left-in">
+		<input type="button" value="右侧入" id="right-in">
+		<input type="button" value="左侧出" id="left-out">
+		<input type="button" value="右侧出" id="right-out">
+	</form>
+	<div id="chart"></div>
+		
+<script>
+	// alert($)
+	var arr = [];
+	var data;
+	var chartDiv = $("#chart");
+	chartDiv.on("click","div",function(e){
+		arr.splice($(this).index(),1);
+		renderChart(arr);
+	})
+	function renderChart(arr){
+		chartDiv.empty();;
+		for (var i = 0; i < arr.length; i++) {
+			var div = $("<div>" + arr[i] + "</div>");
+			chartDiv.append(div);
+		}
+	}
+	$("input[type=text]").change(function(){
+		data = undefined;
+		var val = $(this).val();
+		if((/^\d*$/g).test(val)){
+			data = parseInt($(this).val(),10);
+		}
+	});
+	$("#left-in").click(function(){
+		if (data) {
+			arr.unshift(data);
+			renderChart(arr)
+		} else{
+			alert('没有输入或输入的不是数字');
+		}
+	})
+	$("#right-in").click(function(){
+		if (data) {
+			arr.push(data);
+			renderChart(arr)
+		} else{
+			alert('没有输入或输入的不是数字');
+		}
+	})
+	$("#left-out").click(function(){
+		if(arr.length > 0){
+			var n = arr[0];
+			arr.shift();
+			renderChart(arr);
+			alert(n);
+		} else{
+			alert("队列中还没有元素")
+		}
+	})
+	$("#right-out").click(function(){
+		if(arr.length > 0){
+			var n = arr[arr.length-1];
+			arr.pop();
+			renderChart(arr)
+			alert(n);
+	} else{
+			console.log(arr.lenght)
+			alert("队列中还没有元素")
+		}
+	})
+</script>
+</body>
+</html>

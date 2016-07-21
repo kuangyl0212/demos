@@ -168,16 +168,11 @@ function initAqiChartData() {
             } else {
               n = 9-day1;
             }
-            // console.log(n);
-            var day = Math.floor((date -date1)/(24*3600*1000)) + 1
-            // console.log(day);
+            var day = Math.floor((date -date1)/(24*3600*1000)) + 1;
             var week = Math.floor((day - n)/7 + 2)
-            // console.log(week);
             if (!w[week]) {
-              w[week] = [1]
               w[week] = [aqiSourceData[x][y]];
             } else {
-              w[week].push(1)
               w[week].push(aqiSourceData[x][y]);
             }
           }
@@ -187,6 +182,7 @@ function initAqiChartData() {
               sum += w[x][i];
             }
             chartData[x] = sum/w[x].length;
+            // console.log(w[x])
           }
           break;
         case "month":
@@ -201,7 +197,7 @@ function initAqiChartData() {
              m[n].push(aqiSourceData[x][y]);
            }
           }
-          console.log(m);
+          // console.log(m);
           for(x in m){
             var sum = 0;
             for (var i=0;i<m[x].length;i++){
