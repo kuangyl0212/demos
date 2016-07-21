@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task2-8</title>
+	<style>
+		#chart{
+			margin-top: 20px;
+		}
+		#chart div{
+			display: inline-block;
+			height: 40px;
+			margin:20px 5px 0 0;
+			padding: 0 13px;
+			vertical-align: middle;
+			text-align: center;
+			font: 14px/40px "Microsoft Yahei";
+			color: #fff;
+			background-color: #aaa;
+		}
+	</style>
+	<script src="../jquery.js"></script>
+</head>
+<body>
+
+	<form action="">
+		<textarea name="" id="" cols="30" rows="5"></textarea>
+		<input type="button" value="左侧入" id="left-in">
+		<input type="button" value="右侧入" id="right-in">
+		<input type="button" value="左侧出" id="left-out">
+		<input type="button" value="右侧出" id="right-out">
+		<input type="text" id="keywords" placeholder="搜索关键字">
+		<input type="button" value="搜索" id="search">
+	</form>
+	<div id="chart"></div>
+		
+<script>
+	// alert($)
+	var arr = [];
+	var data;
+	var chartDiv = $("#chart");
+	chartDiv.on("click","div",function(e){
+		arr.splice($(this).index(),1);
+		renderChart(arr);
+	})
+	function renderChart(arr){
+		chartDiv.empty();;
+		for (var i = 0; i < arr.length; i++) {
+			var div = $("<div>" + arr[i] + "</div>");
+			chartDiv.append(div);
+		}
+	}
+	$("textarea").change(function(){
+		data = [];
+		var val = $(this).val();
+		// if((/^\d*$/g).test(val)){
+		// 	data = parseInt($(this).val(),10);
+		// }
+		// alert(val.length)
+		if (val.length > 0) {
+			var reg = new RegExp(/([^\s^,^，^、^\n]+)/g)
+			var a = val.match(reg)
+			console.log(a)
+			data = a;
+		}
+	});
+	$("#left-in").click(function(){
+		if (data.length>0) {
+			for (var i = data.length-1; i >= 0; i--) {
+				arr.unshift(data[i]);
+			}
+			renderChart(arr)
+		} else{
+			alert('没有输入');
+		}
+	})
+	$("#right-in").click(function(){
+		if (data.length>0) {
+			for (var i = 0; i < data.length; i++) {
+				arr.push(data[i]);
+			}
+			renderChart(arr)
+		} else{
+			alert('没有输入');
+		}
+	})
+	$("#left-out").click(function(){
+		if(arr.length > 0){
+			var n = arr[0];
+			arr.shift();
+			renderChart(arr);
+			alert(n);
+		} else{
+			alert("队列中还没有元素")
+		}
+	})
+	$("#right-out").click(function(){
+		if(arr.length > 0){
+			var n = arr[arr.length-1];
+			arr.pop();
+			renderChart(arr)
+			alert(n);
+	} else{
+			console.log(arr.lenght)
+			alert("队列中还没有元素")
+		}
+	})
+	$("#search").click(function(){
+		var keywords = $("#keywords").val();
+		if(keywords.length>0){
+			var reg = new RegExp(keywords)
+			console.log(reg)
+			var h = {}
+			for (var i = 0; i < arr.length; i++) {
+				if(reg.test(arr[i])){
+					h[i]= true;
+				}else{
+					h[i] = false;
+				}
+			}
+			console.log(h)
+			var chart = $("#chart")
+			chart.children().css("color","#fff")
+			for(x in h){
+				if (h[x]) {
+					chart.children().eq(x).css("color","red")
+				}
+			}
+		}else{alert("输入搜索关键字")}
+	})
+</script>
+</body>
+</html>
