@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>task2-7</title>
+	<title>排序可视化</title>
 	<style>
 		#chart{
 			margin-top: 20px;
@@ -31,10 +31,10 @@
 		<input type="button" value="排序" id="sort-btn">
 	</form>
 	<div id="chart"></div>
-		
+
 <script>
 	// alert($)
-	
+
 	var arr = [];
 	for(var i=0;i<80;i++){
 		arr.push(parseInt(Math.random()*500))
@@ -56,7 +56,7 @@
 				chartDiv.append(div);
 			}
 		},10)
-		
+
 	}
 	$("input[type=text]").change(function(){
 		data = undefined;
