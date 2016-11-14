@@ -1,6 +1,6 @@
 #一些个人小DEMO
 
-- 项目地址：https://github.com/rulingfong/ife2016
+- demo地址：http://rulingfong.github.io/demos/
 
 1. 一个比较复杂的css布局
 2. 一个简单的数据可视化（ps：数据为随机生成 可选择日、周、月试图 可选择城市）
